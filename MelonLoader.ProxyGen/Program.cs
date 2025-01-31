@@ -251,7 +251,7 @@ namespace MelonLoader.ProxyGen
 
                 defBuilder.AppendLine("        new()");
                 defBuilder.AppendLine("        {");
-                defBuilder.AppendLine($"            FileName = \"{moduleSection}\",");
+                defBuilder.AppendLine($"            FileName = \"{moduleSection.ToLower()}\",");
                 defBuilder.AppendLine($"            ProxyFuncs = typeof({moduleSection}Exports),");
                 defBuilder.AppendLine("        },");
             }
