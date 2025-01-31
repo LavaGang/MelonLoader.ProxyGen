@@ -5,7 +5,7 @@
         <Nullable>enable</Nullable>
         <OutputType>Exe</OutputType>
         <BaseOutputPath>$(SolutionDir)bin</BaseOutputPath>
-        <StartupObject>MelonLoader.ProxyGen.Program</StartupObject>
+        <StartupObject>MelonLoader.ProxyGen.Mapper.Program</StartupObject>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
       <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
@@ -14,8 +14,9 @@
       <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
     </PropertyGroup>
     <ItemGroup>
-      <None Update="Maps/*">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
+      <PackageReference Include="PeNet" Version="4.1.1" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\MelonLoader.ProxyGen\MelonLoader.ProxyGen.csproj" />
     </ItemGroup>
 </Project>
