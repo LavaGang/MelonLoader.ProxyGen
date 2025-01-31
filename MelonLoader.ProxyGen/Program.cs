@@ -4,7 +4,7 @@ namespace MelonLoader.ProxyGen
 {
     internal static class Program
     {
-        private const string BOOTSTRAP_SECTION = "Bootstrap";
+        private const string MELONLOADER_SECTION = "MelonLoader";
         private const string SHARED_SECTION = "Shared";
 
         internal static void Main()
@@ -73,18 +73,18 @@ namespace MelonLoader.ProxyGen
             defBuilder.AppendLine("EXPORTS");
             defBuilder.AppendLine();
 
-            // Write BOOTSTRAP Section
-            if (moduleExports.ContainsKey(BOOTSTRAP_SECTION))
+            // Write MelonLoader Section
+            if (moduleExports.ContainsKey(MELONLOADER_SECTION))
             {
-                defBuilder.AppendLine($"; {BOOTSTRAP_SECTION}");
-                List<string>? currentExports = moduleExports[BOOTSTRAP_SECTION];
+                defBuilder.AppendLine($"; {MELONLOADER_SECTION}");
+                List<string>? currentExports = moduleExports[MELONLOADER_SECTION];
                 if (currentExports != null)
                     foreach (var export in currentExports)
                         defBuilder.AppendLine($"    {export}");
                 defBuilder.AppendLine();
             }
 
-            // Write SHARED Section
+            // Write Shared Section
             if (moduleExports.ContainsKey(SHARED_SECTION))
             {
                 defBuilder.AppendLine($"; {SHARED_SECTION}");
@@ -99,7 +99,7 @@ namespace MelonLoader.ProxyGen
             foreach (var modulePair in moduleExports)
             {
                 string moduleSection = modulePair.Key;
-                if ((moduleSection == BOOTSTRAP_SECTION)
+                if ((moduleSection == MELONLOADER_SECTION)
                     || (moduleSection == SHARED_SECTION))
                     continue;
 
@@ -146,6 +146,10 @@ namespace MelonLoader.ProxyGen
                         if (originalCategory == mapModule)
                             continue;
 
+                        // Skip if Duplicate of MelonLoader Section
+                        if (originalCategory == MELONLOADER_SECTION)
+                            continue;
+
                         // Remove Original Listing
                         if ((originalCategory != SHARED_SECTION)
                             && moduleExports.TryGetValue(originalCategory, out List<string>? originalExportList)
@@ -176,7 +180,7 @@ namespace MelonLoader.ProxyGen
             foreach (var modulePair in moduleExports)
             {
                 string moduleSection = modulePair.Key;
-                if (moduleSection == BOOTSTRAP_SECTION)
+                if (moduleSection == MELONLOADER_SECTION)
                     continue;
 
                 // Create String Builder
@@ -241,7 +245,7 @@ namespace MelonLoader.ProxyGen
             foreach (var modulePair in moduleExports)
             {
                 string moduleSection = modulePair.Key;
-                if ((moduleSection == BOOTSTRAP_SECTION)
+                if ((moduleSection == MELONLOADER_SECTION)
                     || (moduleSection == SHARED_SECTION))
                     continue;
 
