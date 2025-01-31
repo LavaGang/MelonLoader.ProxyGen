@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace ProxyGen
+namespace MelonLoader.ProxyGen
 {
     internal static class Program
     {

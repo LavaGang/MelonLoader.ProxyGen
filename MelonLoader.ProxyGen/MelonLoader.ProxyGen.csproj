@@ -5,7 +5,7 @@
         <Nullable>enable</Nullable>
         <OutputType>Exe</OutputType>
         <BaseOutputPath>bin</BaseOutputPath>
-        <StartupObject>ProxyGen.Program</StartupObject>
+        <StartupObject>MelonLoader.ProxyGen.Program</StartupObject>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
       <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
@@ -14,10 +14,7 @@
       <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
     </PropertyGroup>
     <ItemGroup>
-      <None Remove=".gitignore" />
-    </ItemGroup>
-    <ItemGroup>
-      <None Update="Maps\*">
+      <None Update="..\Maps\*">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
