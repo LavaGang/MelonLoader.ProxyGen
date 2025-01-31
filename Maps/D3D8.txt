@@ -1,0 +1,4 @@
+Direct3DCreate8
+Direct3D8EnableMaximizedWindowedModeShim
+ValidatePixelShader
+ValidateVertexShader

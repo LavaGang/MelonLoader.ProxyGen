@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <OutputType>Exe</OutputType>
+        <BaseOutputPath>bin</BaseOutputPath>
+        <StartupObject>ProxyGen.Program</StartupObject>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+      <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    </PropertyGroup>
+    <ItemGroup>
+      <None Remove=".gitignore" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Update="Maps\*">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+</Project>
