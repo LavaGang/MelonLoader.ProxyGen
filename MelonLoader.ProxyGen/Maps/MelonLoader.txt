@@ -5,8 +5,5 @@ NativeHookDetach
 LogMsg
 LogError
 LogMelonInfo
-MonoInstallHooks
-MonoGetDomainPtr
-MonoGetRuntimeHandle
 IsConsoleOpen
 GetLoaderConfig
